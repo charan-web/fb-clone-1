@@ -26,7 +26,7 @@ console.log(friends)
 
 const handleClick=async (e)=>{
     try{
-       const res = await axios.get(process.env.REACT_APP_URL+'conversation/find/'+currentId+'/'+e._id)
+       const res = await axios.get(`${process.env.REACT_APP_URL}'conversation/find/'${currentId}'/'${e._id}`)
        setCurrentChat(res.data)
     }catch(err){
 console.log(err)
