@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 export const loginCall=async(userCredentials,dispatch)=>{
     dispatch({type:"LOGIN_START"})
     try{

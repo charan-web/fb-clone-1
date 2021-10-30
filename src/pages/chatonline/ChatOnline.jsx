@@ -12,11 +12,12 @@ function ChatOnline({onlineusers,setCurrentChat,currentId}){
         
      const getFriends= async()=>{
          const res = await axios.get('user/friends/'+currentId)
-         setFriends(res.data.users)
+         console.log(res)
+         setFriends(res.data.friendList)
      }
      getFriends()
     },[currentId])
-
+console.log(friends)
     useEffect(()=>{
         setOnlineFriends(friends.filter(f=>onlineusers.includes(f._id)))
     },[friends,onlineusers])
@@ -27,8 +28,8 @@ const handleClick=async (e)=>{
     try{
        const res = await axios.get('conversation/find/'+currentId+'/'+e._id)
        setCurrentChat(res.data)
-    }catch{
-
+    }catch(err){
+console.log(err)
     }
 }
 

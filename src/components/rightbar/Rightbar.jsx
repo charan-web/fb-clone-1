@@ -9,7 +9,11 @@ import {Add, Remove} from '@mui/icons-material'
 function Rightbar({user}){
     const {user:currentuser,dispatch} = useContext(AuthContext)
     const [friends,setFriends] = useState([])
-    const [followed,setFollowed] = useState(currentuser.followings.includes(user?._id))
+    // const [followed,setFollowed] = useState(currentuser.followings.includes(user?._id))
+   
+
+    let followeds = currentuser.followings.includes(user?._id)
+    // console.log(followeds)
   
 
 
@@ -32,7 +36,7 @@ function Rightbar({user}){
 
     const handleClick=async()=>{
             try {
-                if(followed){
+                if(followeds){
                     await axios.put('/user/'+user._id+'/unfollow',{userId:currentuser._id})
                     dispatch({type:"UNFOLLOW",payload:user._id})
                 }else{
@@ -44,7 +48,8 @@ function Rightbar({user}){
                 console.log(error)
                 
             }
-            setFollowed(!followed)
+            // setFollowed(!followed)
+            followeds= !followeds
     }
 
 const HomeRightPage = ()=>{
@@ -79,8 +84,8 @@ const ProfileRightPage = ()=>{
         <>
         {user.username !== currentuser.username &&(
             <button onClick={handleClick}className="rightbarFollowButton">
-                {followed ? "Unfollow" : "Follow"}
-               {followed ? <Remove/> : <Add/>}
+                {followeds ? "Unfollow" : "Follow"}
+               {followeds ? <Remove/> : <Add/>}
             </button>
         )}
         <h4 className="rightbarTitle">

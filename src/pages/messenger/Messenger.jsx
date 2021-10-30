@@ -23,10 +23,12 @@ function Messenger() {
 
 
 
-
+  // io("https://react-chat-app-by-me.herokuapp.com/")
+  // Access-Control-Allow-Origin
+axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
 useEffect(()=>{
-    socket.current = io("https://react-chat-app-by-me.herokuapp.com/")
+    socket.current =io("https://react-chat-app-by-me.herokuapp.com/")
      socket.current?.on("getMessage",data=>{
         setNewArrivalMessage({
           sender:data.senderId,

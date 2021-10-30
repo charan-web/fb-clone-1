@@ -12,14 +12,15 @@ import {AuthContext} from './../../context/AuthContext'
 function Feed({username}){
    const [posts,setPosts] = useState([])
    const {user} = useContext(AuthContext)
+      console.log(user)
    
    useEffect(()=>{
       const fetchPosts = async()=>{
          let res = username ? 
           await axios.get(`/post/profile/${username}`) :
           //! change id 
-          await axios.get(`post/timeline/${username}`)
-         console.log(res)
+          await axios.get(`/post/timeline/${user._id}`)
+      
 
          setPosts(res.data.posts.sort((p1,p2)=>{
             return new Date(p2.createdAt) - new Date(p1.createdAt)
