@@ -34,7 +34,7 @@ function Share(){
             newPost.img = filename
             console.log(data)
             try { 
-                await axios.post('upload/',data)
+                await axios.post(process.env.REACT_APP_URL+'upload/',data)
                 
             } catch (error) {
                 console.log(error)
@@ -42,7 +42,7 @@ function Share(){
         }
        try{
             console.log(newPost)
-           await axios.post('post/',newPost)
+           await axios.post(process.env.REACT_APP_URL+'post/',newPost)
           
            window.location = '/'
        }catch(err){

@@ -14,7 +14,7 @@ function Profile(){
     const PF = process.env.REACT_APP_PUBLIC_FOLDER
     useEffect(()=>{
         const fetchUser = async()=>{
-           let res = await axios.get(`/user?username=${username}`)
+           let res = await axios.get(`${process.env.REACT_APP_URL}user?username=${username}`)
            setUser(res.data.user)
            
         }

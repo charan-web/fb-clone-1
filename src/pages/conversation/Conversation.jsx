@@ -12,7 +12,7 @@ function Conversation({conversation,currentUser}){
 
         const getFriend = async()=>{
             try {
-                const res = await axios.get('user?userId='+friendId)
+                const res = await axios.get(process.env.REACT_APP_URL+'user?userId='+friendId)
                 setUser(res.data.user)
             } catch (error) {
                 console.log(error)

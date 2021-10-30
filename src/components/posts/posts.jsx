@@ -22,7 +22,7 @@ function Posts({post}){
 
     useEffect(()=>{
         const fetchUser = async()=>{
-           let res = await axios.get(`/user?userId=${post.userId}`)
+           let res = await axios.get(`${process.env.REACT_APP_URL}user?userId=${post.userId}`)
            setUser(res.data.user)
            console.log(res)
         }
@@ -32,7 +32,7 @@ function Posts({post}){
 
     const likeHandler =async ()=>{
      try{
-        await axios.put(`/post/${post._id}/like`,{userId:currentUser._id})
+        await axios.put(`${process.env.REACT_APP_URL}post/${post._id}/like`,{userId:currentUser._id})
         setLike(isLike ? like-1:like+1)
         setIslike(!isLike)
 

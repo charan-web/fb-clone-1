@@ -22,7 +22,7 @@ function Rightbar({user}){
         const getFriends = async ()=>{
             
             try{
-                const res = await axios.get('/user/friends/'+user?._id)
+                const res = await axios.get(process.env.REACT_APP_URL+'user/friends/'+user?._id)
                 setFriends(res.data.friendList)
                
             }catch(error){
@@ -37,10 +37,10 @@ function Rightbar({user}){
     const handleClick=async()=>{
             try {
                 if(followeds){
-                    await axios.put('/user/'+user._id+'/unfollow',{userId:currentuser._id})
+                    await axios.put(process.env.REACT_APP_URL+'user/'+user._id+'/unfollow',{userId:currentuser._id})
                     dispatch({type:"UNFOLLOW",payload:user._id})
                 }else{
-                    await axios.put('/user/'+user._id+'/follow',{userId:currentuser._id})
+                    await axios.put(process.env.REACT_APP_URL+'user/'+user._id+'/follow',{userId:currentuser._id})
                     dispatch({type:"FOLLOW",payload:user._id})
                 }
                 
