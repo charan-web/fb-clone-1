@@ -59,7 +59,7 @@ useEffect(()=>{
     const getConversation = async () => {
        
       try {
-        const res = await axios.get("conversation/" + user._id);
+        const res = await axios.get(process.env.REACT_APP_URL+"conversation/" + user?._id);
         
         setConversations(res.data);
       } catch (error) {
@@ -74,7 +74,7 @@ useEffect(()=>{
     const getMessages = async () => {
       try {
         
-        const res = await axios.get("message/"+currentChat._id);
+        const res = await axios.get(process.env.REACT_APP_URL+"message/"+currentChat?._id);
         setMessage(res.data);
       } catch (error) {
         console.log(error);
@@ -100,7 +100,7 @@ useEffect(()=>{
 
 
     try {
-      const res = await axios.post("message", message);
+      const res = await axios.post(process.env.REACT_APP_URL+"message", message);
       setMessage([...messages, res.data]);
       setNewMessage("");
     } catch (err) {
