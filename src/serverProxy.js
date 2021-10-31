@@ -6,4 +6,10 @@ module.exports=app=>{
             changeOrigin:true
         })
     )
+    app.use(
+        createPxoxyMiddleware('/',{
+            target:'https://react-chat-app-by-me.herokuapp.com',
+            changeOrigin:true
+        })
+    )
 }
