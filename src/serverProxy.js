@@ -6,11 +6,6 @@ module.exports=app=>{
             changeOrigin:true
         })
     )
-    app.use(
-        createPxoxyMiddleware('user/friends/:id',{
-            target:'https://fb-clone-backend-1.herokuapp.com/api/',
-            changeOrigin:true
-        })
-    )
+  
    
 }
