@@ -7,8 +7,8 @@ module.exports=app=>{
         })
     )
     app.use(
-        createPxoxyMiddleware('/',{
-            target:'https://react-chat-app-by-me.herokuapp.com',
+        createPxoxyMiddleware('post/timelinge/:id',{
+            target:'https://fb-clone-backend-1.herokuapp.com/api/',
             changeOrigin:true
         })
     )
