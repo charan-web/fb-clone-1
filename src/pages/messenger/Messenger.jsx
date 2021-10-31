@@ -29,7 +29,7 @@ axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
 useEffect(()=>{
     socket.current =io("https://react-chat-app-by-me.herokuapp.com/",{
-      headers:{
+      extraHeaders:{
         "Allow-Access-Control-Origin":"*"
       }
     })
