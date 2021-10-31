@@ -28,7 +28,11 @@ function Messenger() {
 axios.defaults.headers.common['Access-Control-Allow-Origin'] = '*'
 
 useEffect(()=>{
-    socket.current =io("https://react-chat-app-by-me.herokuapp.com/")
+    socket.current =io("https://react-chat-app-by-me.herokuapp.com/",{
+      headers:{
+        "Allow-Access-Control-Origin":"*"
+      }
+    })
      socket.current?.on("getMessage",data=>{
         setNewArrivalMessage({
           sender:data.senderId,
