@@ -19,7 +19,11 @@ function Feed({username}){
          let res = username ? 
           await axios.get(`${process.env.REACT_APP_URL}post/profile/${username}`) :
           //! change id 
-          await axios.get(`${process.env.REACT_APP_URL}post/timeline/${user._id}`)
+          await axios.get(`${process.env.REACT_APP_URL}post/timeline/${user._id}`,{
+             headers:{
+                "Access-Control-Allow-Origin":"*"
+             }
+          })
       
 
          setPosts(res.data.posts.sort((p1,p2)=>{
