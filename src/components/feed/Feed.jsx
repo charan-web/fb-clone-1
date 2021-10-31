@@ -19,7 +19,7 @@ function Feed({username}){
          let res = username ? 
           await axios.get(`${process.env.REACT_APP_URL}post/profile/${username}`) :
           //! change id 
-          await axios.get('post/timeline/'+user._id,{
+          await axios.get(process.env.REACT_APP_URL+'post/timeline/'+user._id,{
              headers:{
                "Content-Type":"application/json",
                 "Access-Control-Allow-Origin":"*"

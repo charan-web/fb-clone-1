@@ -13,7 +13,6 @@ function ChatOnline({onlineusers,setCurrentChat,currentId}){
      const getFriends= async()=>{
          const res = await axios.get(process.env.REACT_APP_URL+'user/friends/'+currentId,{
              headers:{
-                 "Content-Type":"application/json",
                  "Access-Control-Allow-Origin":"*"
              }
          })
