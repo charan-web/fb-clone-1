@@ -17,12 +17,12 @@ function App(){
       <Router>
           <Switch>
           <Route exact path='/'>
-                  {user ? <Home/> : <Register/>}
+                  {user ? <Home/> : <Login/>}
               </Route>
               <Route exact path='/login'>
                   {user ? <Redirect to="/"/>: <Login/>}
               </Route>
-              <Route exact  path='/login'>
+              <Route exact  path='/register'>
               {user ? <Redirect to="/"/>: <Register/>}
               </Route>
               <Route exact path='/profile/:username'>
