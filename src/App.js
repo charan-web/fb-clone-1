@@ -22,7 +22,7 @@ function App(){
               <Route exact path='/login'>
                   {user ? <Redirect to="/"/>: <Login/>}
               </Route>
-              <Route exact  path='/register'>
+              <Route exact  path='/login'>
               {user ? <Redirect to="/"/>: <Register/>}
               </Route>
               <Route exact path='/profile/:username'>
