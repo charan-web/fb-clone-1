@@ -60,7 +60,7 @@ function Posts({post}){
                 </div>
                 <div className="postCenter">
                     <div className="postText">{post?.desc}</div>
-//                     <img className="postImg" src={`${PF}/${post?.img}`}alt="people1" />
+ {/* <img className="postImg" src={`${PF}/${post?.img}`}alt="people1" /> */}
                        <img className="postImg" src={`${PF}/posts/${post?.img}`}alt="people1" />
                 </div>
                 <div className="postBottom">
