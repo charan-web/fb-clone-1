@@ -38,6 +38,9 @@ function Login(){
                         required
                         minLength='6'
                          />
+                            <div class="g-recaptcha"
+                 data-sitekey="6Lf-PYQeAAAAAFLn64TsZormOz3rJAXjJwGEoZsE">
+            </div>
                         <button className="loginButton" 
                         disabled={isFetching}>{isFetching ? "Loading..." : "LogIn"}</button>
                         <span className="loginForgot">
